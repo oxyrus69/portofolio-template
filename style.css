@@ -1,0 +1,128 @@
+/* Pengaturan Dasar */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 1. Pengaturan Header */
+.site-header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+.site-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* 2. Pengaturan Galeri (Grid) */
+.template-gallery {
+  padding: 40px 0;
+}
+
+/* Ini adalah bagian penting yang membuat galeri menjadi rapi */
+.template-gallery .container {
+  display: grid;
+  /* Membuat kolom-kolom. 
+       'repeat(auto-fit, ...)' berarti buat kolom sebanyak mungkin
+       dengan lebar minimal 300px. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Jarak antar kartu */
+}
+
+/* 3. Pengaturan Kartu Template */
+.template-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden; /* Agar gambar tidak keluar dari radius */
+  display: flex;
+  flex-direction: column; /* Mengatur konten agar vertikal */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.template-card:hover {
+  transform: translateY(-5px); /* Efek sedikit terangkat saat disentuh mouse */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-thumbnail {
+  width: 100%;
+  height: 220px;
+  object-fit: cover; /* Memastikan gambar terpotong rapi */
+  border-bottom: 1px solid #eee;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Memastikan konten mengisi sisa ruang */
+}
+
+.card-title {
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+}
+
+.card-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1; /* Mendorong link agar selalu di bawah */
+  margin-bottom: 20px;
+}
+
+.card-links {
+  display: flex;
+  gap: 10px; /* Jarak antar tombol */
+}
+
+/* 4. Pengaturan Tombol (Button) */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.2s ease;
+}
+
+.btn {
+  background-color: #3498db; /* Tombol utama (biru) */
+  color: white;
+}
+.btn:hover {
+  background-color: #2980b9;
+}
+
+.btn-secondary {
+  background-color: #ecf0f1; /* Tombol kedua (abu-abu) */
+  color: #333;
+}
+.btn-secondary:hover {
+  background-color: #bdc3c7;
+}
+
+/* 5. Pengaturan Footer */
+.site-footer {
+  text-align: center;
+  padding: 30px 0;
+  background-color: #e9ecef;
+  color: #555;
+  margin-top: 40px;
+}
