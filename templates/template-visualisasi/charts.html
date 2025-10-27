@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Visualisasi Data</title>
+
+    <link rel="stylesheet" href="charts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-brand">
+          <span class="brand-text">Data Viz</span>
+        </div>
+        <div class="header-user">
+          <span>Halo, Analis</span>
+        </div>
+      </header>
+
+      <aside class="app-sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item active">
+              <a href="#"
+                ><i class="fas fa-chart-bar"></i><span>Laporan Utama</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#"><i class="fas fa-users"></i><span>Demografi</span></a>
+            </li>
+            <li class="nav-item">
+              <a href="#"><i class="fas fa-cog"></i><span>Pengaturan</span></a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="app-content">
+        <h1>Laporan Visualisasi Data</h1>
+
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h2>Kunjungan Pasien (6 Bulan Terakhir)</h2>
+            <canvas id="myBarChart"></canvas>
+          </div>
+
+          <div class="chart-card">
+            <h2>Persentase Spesialisasi</h2>
+            <canvas id="myPieChart"></canvas>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="charts.js"></script>
+  </body>
+</html>

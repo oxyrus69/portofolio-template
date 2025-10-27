@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Koleksi Template Saya</title>
     <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
     <header class="site-header">
@@ -13,58 +18,283 @@
         <p>
           Kumpulan template sistem informasi yang dibuat untuk mencerahkan Anda.
         </p>
+
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i> <i class="fas fa-sun"></i>
+        </button>
       </div>
     </header>
 
     <main class="template-gallery">
+      <div class="intro-container container">
+        <h2>Tentang Portofolio Ini</h2>
+        <p>
+          Selamat datang! Ini adalah etalase digital saya yang memamerkan
+          koleksi template web siap pakai, dengan fokus utama pada antarmuka
+          Sistem Informasi (SI).
+        </p>
+        <p>
+          Tujuan portofolio ini adalah untuk
+          <strong>membuktikan perjalanan (proof of journey)</strong>
+          saya dalam merancang dan membangun desain yang bersih, modern, dan
+          fungsional menggunakan HTML, CSS, dan prinsip UI/UX. Setiap template
+          adalah bukti nyata perjalanan saya.
+        </p>
+        <p>
+          Silakan jelajahi koleksi di bawah ini. Setiap template memiliki demo
+          live dan halaman detail yang menjelaskan fitur serta teknologi yang
+          digunakan.
+        </p>
+      </div>
+
       <div class="container">
-        <div class="template-card">
-          <img
-            src="images/si-akademik/dashboard.PNG"
-            alt="Tampilan Template 1"
-            class="card-thumbnail"
-          />
+        <div class="filter-controls">
+          <button class="filter-btn active" data-filter="semua">Semua</button>
+          <button class="filter-btn" data-filter="tema">Tema Aplikasi</button>
+          <button class="filter-btn" data-filter="komponen">Komponen</button>
+        </div>
+      </div>
+
+      <div class="container gallery-grid">
+        <div class="template-card" data-category="komponen">
+          <a href="template-login-detail.html" class="card-image-link">
+            <img
+              src="images/template-login/template-login.PNG"
+              alt="Tampilan Template Halaman Login"
+              class="card-thumbnail"
+            />
+          </a>
           <div class="card-content">
-            <h2 class="card-title">Template SI Akademik</h2>
+            <a href="template-login-detail.html" class="card-title-link">
+              <h2 class="card-title">Template Halaman Login</h2>
+            </a>
             <p class="card-description">
-              Sebuah template dashboard untuk sistem informasi akademik, lengkap
-              dengan halaman data mahasiswa dan jadwal.
+              Halaman login yang bersih, modern, dan responsif. Diletakkan di
+              tengah layar dengan sempurna.
             </p>
             <div class="card-links">
+              <a href="template-login-detail.html" class="btn">Lihat Detail</a>
               <a
-                href="https://oxyrus69.github.io/lms-template/"
-                class="btn"
+                href="templates/template-login/login.html"
+                class="btn btn-secondary"
                 target="_blank"
                 >Lihat Demo</a
               >
-              <a href="#" class="btn btn-secondary">Download</a>
             </div>
           </div>
         </div>
-        <div class="template-card">
-          <img
-            src="images/template2-thumbnail.jpg"
-            alt="Tampilan Template 2"
-            class="card-thumbnail"
-          />
+
+        <div class="template-card" data-category="komponen">
+          <a href="template-dashboard-detail.html" class="card-image-link">
+            <img
+              src="images/template-dashboard/template-dashboard.PNG"
+              alt="Tampilan Template Dashboard"
+              class="card-thumbnail"
+            />
+          </a>
           <div class="card-content">
-            <h2 class="card-title">Template SI Kepegawaian</h2>
+            <a href="template-dashboard-detail.html" class="card-title-link">
+              <h2 class="card-title">Template Dashboard & Tabel Data</h2>
+            </a>
             <p class="card-description">
-              Desain antarmuka untuk aplikasi manajemen kepegawaian (HRIS).
+              Layout dashboard SI profesional, lengkap dengan header, sidebar,
+              dan antarmuka tabel data (CRUD).
             </p>
             <div class="card-links">
-              <a href="#" class="btn" target="_blank">Lihat Demo</a>
-              <a href="#" class="btn btn-secondary">Download</a>
+              <a href="template-dashboard-detail.html" class="btn"
+                >Lihat Detail</a
+              >
+              <a
+                href="templates/template-dashboard/dashboard.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="template-card" data-category="tema">
+          <a href="template-klinik-detail.html" class="card-image-link">
+            <img
+              src="templates/theme-klinik/images/klinik-homepage.PNG"
+              alt="Tampilan Tema Klinik"
+              class="card-thumbnail"
+            />
+          </a>
+          <div class="card-content">
+            <a href="template-klinik-detail.html" class="card-title-link">
+              <h2 class="card-title">Tema Aplikasi Klinik (Multi-halaman)</h2>
+            </a>
+            <p class="card-description">
+              Sebuah tema web aplikasi lengkap untuk sistem rekam medis.
+              Termasuk Homepage, Login, Register, dan Dashboard.
+            </p>
+            <div class="card-links">
+              <a href="template-klinik-detail.html" class="btn">Lihat Detail</a>
+              <a
+                href="templates/theme-klinik/index.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="template-card" data-category="komponen">
+          <a href="template-charts-detail.html" class="card-image-link">
+            <img
+              src="templates/template-visualisasi/template-charts.PNG"
+              alt="Tampilan Template Visualisasi Data"
+              class="card-thumbnail"
+            />
+          </a>
+          <div class="card-content">
+            <a href="template-charts-detail.html" class="card-title-link">
+              <h2 class="card-title">Template Laporan (Chart.js)</h2>
+            </a>
+            <p class="card-description">
+              Halaman dashboard laporan yang inovatif, menampilkan grafik batang
+              dan lingkaran interaktif menggunakan Chart.js.
+            </p>
+            <div class="card-links">
+              <a href="template-charts-detail.html" class="btn">Lihat Detail</a>
+              <a
+                href="templates/template-visualisasi/charts.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="template-card" data-category="komponen">
+          <a href="template-kanban-detail.html" class="card-image-link">
+            <img
+              src="templates/template-kanban/template-kanban.PNG"
+              alt="Tampilan Template Papan Kanban"
+              class="card-thumbnail"
+            />
+          </a>
+          <div class="card-content">
+            <a href="template-kanban-detail.html" class="card-title-link">
+              <h2 class="card-title">Template Papan Kanban</h2>
+            </a>
+            <p class="card-description">
+              Papan manajemen tugas interaktif seperti Trello, lengkap dengan
+              fungsionalitas drag-and-drop murni dengan JavaScript.
+            </p>
+            <div class="card-links">
+              <a href="template-kanban-detail.html" class="btn">Lihat Detail</a>
+              <a
+                href="templates/template-kanban/kanban.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="template-card" data-category="komponen">
+          <a href="template-wizard-detail.html" class="card-image-link">
+            <img
+              src="templates/template-wizard/template-wizard.PNG"
+              alt="Tampilan Template Formulir Multi-Langkah"
+              class="card-thumbnail"
+            />
+          </a>
+          <div class="card-content">
+            <a href="template-wizard-detail.html" class="card-title-link">
+              <h2 class="card-title">Formulir Multi-Langkah</h2>
+            </a>
+            <p class="card-description">
+              Sebuah formulir "wizard" interaktif dengan progress bar, tombol
+              navigasi (next/prev), dan langkah-langkah yang dinamis.
+            </p>
+            <div class="card-links">
+              <a href="template-wizard-detail.html" class="btn">Lihat Detail</a>
+              <a
+                href="templates/template-wizard/wizard.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="template-card" data-category="komponen">
+          <a href="template-chat-detail.html" class="card-image-link">
+            <img
+              src="templates/template-chat/template-chat.PNG"
+              alt="Tampilan Template Antarmuka Chat"
+              class="card-thumbnail"
+            />
+          </a>
+          <div class="card-content">
+            <a href="template-chat-detail.html" class="card-title-link">
+              <h2 class="card-title">Antarmuka Chat (IM)</h2>
+            </a>
+            <p class="card-description">
+              Layout 2 kolom untuk aplikasi chat (seperti WhatsApp) dengan
+              gelembung pesan rata kiri/kanan dan simulasi kirim pesan.
+            </p>
+            <div class="card-links">
+              <a href="template-chat-detail.html" class="btn">Lihat Detail</a>
+              <a
+                href="templates/template-chat/chat.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="template-card" data-category="komponen">
+          <a href="template-product-detail.html" class="card-image-link">
+            <img
+              src="templates/template-ecommerce/template-ecommerce.PNG"
+              alt="Tampilan Template Halaman Produk E-commerce"
+              class="card-thumbnail"
+            />
+          </a>
+          <div class="card-content">
+            <a href="template-product-detail.html" class="card-title-link">
+              <h2 class="card-title">Halaman Produk E-commerce</h2>
+            </a>
+            <p class="card-description">
+              Halaman detail produk yang komprehensif, lengkap dengan galeri
+              gambar, selektor kuantitas, dan konten tab.
+            </p>
+            <div class="card-links">
+              <a href="template-product-detail.html" class="btn"
+                >Lihat Detail</a
+              >
+              <a
+                href="templates/template-ecommerce/product.html"
+                class="btn btn-secondary"
+                target="_blank"
+                >Lihat Demo</a
+              >
             </div>
           </div>
         </div>
       </div>
     </main>
 
+    <button id="back-to-top-btn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
     <footer class="site-footer">
       <div class="container">
-        <p>&copy; 2025 - Dibuat oleh fla1r</p>
+        <p>&copy; 2025 - Dibuat oleh fla1r.</p>
       </div>
     </footer>
+
+    <script src="main.js"></script>
   </body>
 </html>

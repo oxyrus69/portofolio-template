@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Klinik Sehat</title>
+
+    <link rel="stylesheet" href="app.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-brand">
+          <button class="mobile-menu-toggle" id="app-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="brand-text">Rekam Medis</span>
+        </div>
+
+        <div class="header-user">
+          <span>Halo, Dr. Budi</span>
+          <img
+            src="httpsa://via.placeholder.com/40"
+            alt="Foto Profil"
+            style="width: 40px; height: 40px; border-radius: 50%"
+          />
+        </div>
+      </header>
+
+      <aside class="app-sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item active">
+              <a href="dashboard.html">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pasien-data.html">
+                <i class="fas fa-users"></i>
+                <span>Data Pasien</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="jadwal-dokter.html">
+                <i class="fas fa-user-md"></i>
+                <span>Jadwal Dokter</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="rekam-medis.html">
+                <i class="fas fa-file-medical"></i>
+                <span>Rekam Medis</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pengaturan.html">
+                <i class="fas fa-cog"></i>
+                <span>Pengaturan</span>
+              </a>
+            </li>
+            <li class="nav-item logout">
+              <a href="login.html">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="app-content">
+        <h1>Selamat Datang, Dr. Budi!</h1>
+
+        <div class="stat-grid">
+          <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <div class="stat-card-info">
+              <h3>124</h3>
+              <p>Total Pasien</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-calendar-check"></i>
+            <div class="stat-card-info">
+              <h3>8</h3>
+              <p>Kunjungan Hari Ini</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-user-md"></i>
+            <div class="stat-card-info">
+              <h3>4</h3>
+              <p>Dokter Jaga</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Aktivitas Terbaru</h2>
+          <p>
+            Belum ada aktivitas terbaru untuk ditampilkan. Halaman data pasien
+            dan rekam medis akan menampilkan data tabel di sini.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

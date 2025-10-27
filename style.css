@@ -1,10 +1,62 @@
-/* Pengaturan Dasar */
+/* ======================================= */
+/* == 0. IMPORT FONT & CSS VARIABLES    == */
+/* ======================================= */
+
+/* Kita impor Google Font 'Poppins' untuk tampilan modern */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  /* Variabel Warna (Modern) */
+  --color-bg: #f8f9fa; /* Latar belakang halaman (sangat muda) */
+  --color-white: #ffffff;
+  --color-text: #212529; /* Teks utama (hitam pekat) */
+  --color-text-secondary: #6c757d; /* Teks abu-abu (untuk deskripsi) */
+  --color-primary: #0d6efd; /* Biru baru yang lebih cerah */
+  --color-primary-dark: #0b5ed7; /* Biru hover */
+  --color-border: #dee2e6; /* Garis/border abu-abu muda */
+
+  /* Variabel Lain */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --border-radius-main: 12px; /* Sedikit lebih bulat */
+
+  /* Variabel Tombol Sekunder (BARU) */
+  --color-btn-secondary-bg: #e9ecef;
+  --color-btn-secondary-text: #212529;
+  --color-btn-secondary-bg-hover: #d6dbe0;
+}
+
+/* Variabel Warna untuk Mode Gelap */
+body.dark-mode {
+  --color-bg: #1a1a1a; /* Latar belakang jadi gelap */
+  --color-white: #2c2c2c; /* Header/kartu jadi abu-abu gelap */
+  --color-text: #e9ecef; /* Teks jadi putih pudar */
+  --color-text-secondary: #adb5bd; /* Teks abu-abu jadi lebih terang */
+  --color-border: #495057; /* Border jadi abu-abu tua */
+
+  /* Variabel Tombol Sekunder Mode Gelap (BARU) */
+  --color-btn-secondary-bg: #343a40; /* Latar jadi abu-abu gelap */
+  --color-btn-secondary-text: #f8f9fa; /* Teks jadi putih */
+  --color-btn-secondary-bg-hover: #495057; /* Hover jadi lebih terang */
+
+  /* Matikan bayangan di mode gelap (biasanya diganti border) */
+  --shadow-soft: none;
+  --shadow-subtle: none;
+}
+
+/* ======================================= */
+/* == 1. PENGATURAN DASAR (BODY)       == */
+/* ======================================= */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  /* Menggunakan font baru */
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
   margin: 0;
-  background-color: #f4f7f6;
-  color: #333;
+  background-color: var(--color-bg); /* Latar belakang baru */
+  color: var(--color-text); /* Teks utama baru */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -13,116 +65,469 @@ body {
   padding: 0 20px;
 }
 
-/* 1. Pengaturan Header */
+/* ======================================= */
+/* == 2. PENGATURAN HEADER (BARU)      == */
+/* ======================================= */
 .site-header {
-  background-color: #2c3e50;
-  color: white;
-  padding: 40px 0;
+  background-color: var(--color-white); /* Header jadi putih */
+  color: var(--color-text); /* Teks header jadi hitam */
+  padding: 60px 0; /* Lebih banyak spasi */
   text-align: center;
+  border-bottom: 1px solid var(--color-border); /* Garis pemisah halus */
 }
 .site-header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  font-weight: 700; /* Lebih tebal */
 }
 .site-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+  font-size: 1.25rem;
+  color: var(--color-text-secondary); /* Teks sekunder abu-abu */
+  margin-top: 10px;
+  font-weight: 400;
 }
 
-/* 2. Pengaturan Galeri (Grid) */
-.template-gallery {
-  padding: 40px 0;
-}
-
-/* Ini adalah bagian penting yang membuat galeri menjadi rapi */
-.template-gallery .container {
-  display: grid;
-  /* Membuat kolom-kolom. 
-       'repeat(auto-fit, ...)' berarti buat kolom sebanyak mungkin
-       dengan lebar minimal 300px. */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px; /* Jarak antar kartu */
-}
-
-/* 3. Pengaturan Kartu Template */
-.template-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: hidden; /* Agar gambar tidak keluar dari radius */
+/* == 2.B. THEME TOGGLE BUTTON == */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
   display: flex;
-  flex-direction: column; /* Mengatur konten agar vertikal */
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.theme-toggle:hover {
+  background-color: var(--color-bg);
+}
+
+/* Sembunyikan ikon matahari secara default */
+.theme-toggle .fa-sun {
+  display: none;
+}
+
+/* Saat dark mode, sembunyikan bulan, tampilkan matahari */
+.dark-mode .theme-toggle .fa-moon {
+  display: none;
+}
+.dark-mode .theme-toggle .fa-sun {
+  display: block;
+}
+
+/* Agar tombol tidak menabrak judul di mobile */
+@media (max-width: 768px) {
+  .site-header h1 {
+    padding-right: 40px; /* Beri ruang untuk tombol */
+  }
+}
+
+/* ======================================= */
+/* == 3. PENGATURAN GALERI (GRID)      == */
+/* ======================================= */
+.template-gallery {
+  padding: 60px 0; /* Lebih banyak spasi */
+}
+
+.template-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px; /* Jarak antar kartu lebih besar */
+}
+
+/* ======================================= */
+/* == 4. PENGATURAN KARTU TEMPLATE     == */
+/* ======================================= */
+.template-card {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow-subtle); /* Bayangan lebih halus */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .template-card:hover {
-  transform: translateY(-5px); /* Efek sedikit terangkat saat disentuh mouse */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px); /* Efek terangkat lebih jelas */
+  box-shadow: var(--shadow-soft); /* Bayangan lebih jelas saat hover */
+}
+
+/* Link di gambar dan judul */
+a.card-image-link,
+a.card-title-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card-thumbnail {
   width: 100%;
-  height: 220px;
-  object-fit: cover; /* Memastikan gambar terpotong rapi */
-  border-bottom: 1px solid #eee;
+  height: 240px; /* Sedikit lebih tinggi */
+  object-fit: contain; /* (Sesuai settinganmu sebelumnya) */
+  background-color: #f0f0f0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .card-content {
-  padding: 20px;
+  padding: 24px; /* Padding lebih besar */
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Memastikan konten mengisi sisa ruang */
+  flex-grow: 1;
 }
 
 .card-title {
-  margin: 0 0 10px 0;
-  font-size: 1.4rem;
+  margin: 0 0 12px 0;
+  font-size: 1.5rem; /* Judul lebih besar */
+  font-weight: 600;
 }
 
 .card-description {
   font-size: 1rem;
   line-height: 1.6;
-  flex-grow: 1; /* Mendorong link agar selalu di bawah */
-  margin-bottom: 20px;
+  color: var(--color-text-secondary); /* Teks deskripsi abu-abu */
+  flex-grow: 1;
+  margin-bottom: 24px;
 }
 
 .card-links {
   display: flex;
-  gap: 10px; /* Jarak antar tombol */
+  gap: 12px;
 }
 
-/* 4. Pengaturan Tombol (Button) */
+/* ======================================= */
+/* == 5. PENGATURAN TOMBOL (BUTTON)    == */
+/* ======================================= */
 .btn {
   display: inline-block;
-  padding: 10px 18px;
-  border-radius: 5px;
+  padding: 12px 20px; /* Tombol lebih besar */
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600; /* Teks tombol lebih tebal */
   text-align: center;
   transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
 }
 
 .btn {
-  background-color: #3498db; /* Tombol utama (biru) */
-  color: white;
+  background-color: var(--color-primary); /* Biru baru */
+  color: var(--color-white);
 }
 .btn:hover {
-  background-color: #2980b9;
+  background-color: var(--color-primary-dark); /* Biru hover baru */
 }
 
 .btn-secondary {
-  background-color: #ecf0f1; /* Tombol kedua (abu-abu) */
-  color: #333;
+  background-color: var(--color-btn-secondary-bg);
+  color: var(--color-btn-secondary-text);
+  border: 1px solid var(--color-border); /* Tambah border agar konsisten */
 }
 .btn-secondary:hover {
-  background-color: #bdc3c7;
+  background-color: var(--color-btn-secondary-bg-hover);
 }
 
-/* 5. Pengaturan Footer */
+/* ======================================= */
+/* == 6. STYLE HALAMAN DETAIL TEMPLATE == */
+/* ======================================= */
+.template-detail {
+  padding: 60px 0;
+}
+
+.breadcrumb {
+  margin-bottom: 24px;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--color-primary); /* Biru baru */
+  font-weight: 600;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.detail-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  color: var(--color-text); /* Teks hitam */
+}
+
+.detail-actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.detail-actions .btn {
+  padding: 12px 25px;
+  font-size: 1.1rem;
+}
+
+.detail-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow-soft); /* Bayangan halus baru */
+  margin-bottom: 40px;
+}
+
+.detail-content {
+  background-color: var(--color-white);
+  padding: 30px 40px; /* Padding lebih besar */
+  border-radius: var(--border-radius-main);
+  border: 1px solid var(--color-border); /* Border halus */
+  box-shadow: var(--shadow-subtle);
+}
+
+.detail-content h2,
+.detail-content h3 {
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-bg); /* Garis pemisah halus */
+  padding-bottom: 10px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.detail-content p,
+.detail-content li {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary); /* Teks abu-abu */
+}
+
+.detail-content ul {
+  padding-left: 20px;
+}
+
+/* ======================================= */
+/* == 7. PENGATURAN FOOTER (BARU)      == */
+/* ======================================= */
 .site-footer {
   text-align: center;
-  padding: 30px 0;
-  background-color: #e9ecef;
-  color: #555;
-  margin-top: 40px;
+  padding: 40px 0;
+  background-color: var(--color-white); /* Footer putih */
+  color: var(--color-text-secondary); /* Teks abu-abu */
+  margin-top: 60px;
+  border-top: 1px solid var(--color-border); /* Garis pemisah halus */
+}
+
+/* ======================================= */
+/* == 7.B. STYLE INTRO CONTAINER (BARU) == */
+/* ======================================= */
+
+.intro-container {
+  background-color: var(--color-white);
+  padding: 30px 40px;
+  border-radius: var(--border-radius-main);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 60px; /* Jarak ke galeri kartu di bawahnya */
+}
+
+.intro-container h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 2px solid var(--color-bg);
+  padding-bottom: 10px;
+}
+
+.intro-container p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+/* Menghapus margin-bottom di paragraf terakhir */
+.intro-container p:last-child {
+  margin-bottom: 0;
+}
+
+/* == 7.C. DARK MODE CARD & BOX STYLES == */
+.dark-mode .template-card,
+.dark-mode .intro-container,
+.dark-mode .detail-content {
+  /* Menambah border sebagai pengganti shadow */
+  border: 1px solid var(--color-border);
+}
+
+/* ======================================= */
+/* == 7.D. DETAIL PAGE IMAGE GALLERY   == */
+/* ======================================= */
+
+.image-gallery-wrapper {
+  /* Menggantikan margin-bottom dari .detail-image */
+  margin-bottom: 40px;
+}
+
+/* Sedikit ubah margin gambar utama */
+.detail-image {
+  margin-bottom: 15px;
+}
+
+.thumbnail-row {
+  display: flex;
+  gap: 10px;
+  /* Memungkinkan scroll horizontal jika thumbnail terlalu banyak */
+  overflow-x: auto;
+  padding-bottom: 10px; /* Jarak untuk scrollbar */
+}
+
+.thumbnail {
+  width: 120px;
+  height: 80px;
+  object-fit: cover; /* Memotong gambar thumbnail agar rapi */
+  border-radius: 8px;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6; /* Membuat thumbnail non-aktif terlihat pudar */
+  flex-shrink: 0; /* Mencegah thumbnail menyusut */
+}
+
+.thumbnail:hover {
+  opacity: 1;
+}
+
+.thumbnail.active {
+  opacity: 1;
+  border-color: var(--color-primary); /* Menandai thumbnail yang aktif */
+}
+
+/* ======================================= */
+/* == 7.E. KONTROL FILTER KATEGORI     == */
+/* ======================================= */
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.filter-btn {
+  /* Gunakan style tombol sekunder sebagai dasar */
+  background-color: var(--color-btn-secondary-bg);
+  color: var(--color-btn-secondary-text);
+  border: 1px solid var(--color-border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-btn:hover {
+  background-color: var(--color-btn-secondary-bg-hover);
+}
+
+/* Style untuk tombol yang sedang AKTIF */
+.filter-btn.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+/* Kelas untuk menyembunyikan kartu via JS */
+.template-card.hide {
+  display: none;
+}
+
+/* ======================================= */
+/* == 7.F. TOMBOL KEMBALI KE ATAS      == */
+/* ======================================= */
+
+#back-to-top-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed; /* Tetap di layar */
+  bottom: 30px;
+  right: 30px;
+
+  width: 50px;
+  height: 50px;
+
+  /* Gunakan warna primer kita */
+  background-color: var(--color-primary);
+  color: var(--color-white);
+
+  border: none;
+  border-radius: 50%; /* Bulat sempurna */
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  /* Sembunyikan secara default */
+  opacity: 0;
+  visibility: hidden;
+
+  /* Efek transisi halus */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
+  z-index: 100;
+}
+
+#back-to-top-btn:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-3px); /* Efek sedikit terangkat */
+}
+
+/* Kelas ini akan ditambahkan oleh JS saat tombol harus muncul */
+#back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ======================================= */
+/* == 8. MEDIA QUERY (RESPONSIVE)      == */
+/* ======================================= */
+
+@media (max-width: 768px) {
+  /* Kecilkan font dan padding di mobile */
+  .site-header {
+    padding: 40px 0;
+  }
+  .site-header h1 {
+    font-size: 2.2rem;
+  }
+  .site-header p {
+    font-size: 1.1rem;
+  }
+
+  .template-gallery {
+    padding: 40px 0;
+  }
+
+  .template-detail {
+    padding: 40px 0;
+  }
+
+  .detail-title {
+    font-size: 2rem;
+  }
+
+  .detail-content {
+    padding: 20px;
+  }
+
+  .intro-container {
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+  .intro-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }

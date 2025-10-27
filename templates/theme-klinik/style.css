@@ -1,0 +1,216 @@
+/* File: templates/theme-klinik/style.css */
+
+/* 1. Import Font dan Variabel */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-primary: #007bff; /* Biru medis */
+  --color-primary-dark: #0056b3;
+  --color-secondary: #6c757d;
+  --color-bg-light: #f8f9fa;
+  --color-white: #ffffff;
+  --color-text: #333;
+  --color-text-light: #666;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. Pengaturan Dasar */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-bg-light);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 3. Komponen Umum: Tombol */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: none;
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* 4. Navigasi (Untuk Homepage) - DIPERBAIKI */
+.navbar {
+  padding: 20px 0;
+  background-color: var(--color-white);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Jadikan .container di dalam .navbar sebagai flexbox */
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Ini adalah grup untuk link di tengah (Home, Fitur) */
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  /* Pindahkan ke tengah, opsional */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Ini adalah grup untuk tombol (Login, Daftar) */
+.nav-actions {
+  display: flex;
+  gap: 15px;
+}
+
+/* 5. Hero Section (Untuk Homepage) */
+.hero {
+  background-color: var(--color-white);
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #222;
+}
+.hero p {
+  font-size: 1.25rem;
+  color: var(--color-text-light);
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+}
+
+/* 6. Fitur Section (Untuk Homepage) */
+.features {
+  padding: 80px 0;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.feature-card {
+  background-color: var(--color-white);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+.feature-card i {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+.feature-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+/* 7. Footer (Untuk Homepage) */
+.footer {
+  text-align: center;
+  padding: 40px 0;
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  background-color: var(--color-white);
+}
+
+/* 8. Utility (Untuk Form Login/Register) */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.form-box {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-white);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+.form-box h2 {
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.form-box .btn {
+  width: 100%;
+  margin-top: 10px;
+}
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}

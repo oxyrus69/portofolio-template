@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Admin - Template</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <header class="header">
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="header-title">Sistem Informasi Dashboard</div>
+        <div class="header-profile">
+          <span>Halo, Admin</span>
+          <img src="profil.png" alt="Foto Profil" />
+        </div>
+      </header>
+
+      <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+              <a href="#">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="#">
+                <i class="fas fa-users"></i>
+                <span>Data Mahasiswa</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <i class="fas fa-book"></i>
+                <span>Mata Kuliah</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Jadwal</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#">
+                <i class="fas fa-cog"></i>
+                <span>Pengaturan</span>
+              </a>
+            </li>
+            <li class="nav-item logout">
+              <a href="#">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <div class="content-header">
+          <h1>Data Mahasiswa</h1>
+          <div class="header-actions">
+            <input
+              type="text"
+              placeholder="Cari mahasiswa..."
+              class="search-bar"
+            />
+            <a href="#" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Tambah Data
+            </a>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Lengkap</th>
+                <th>NIM</th>
+                <th>Jurusan</th>
+                <th>Email</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Ahmad Susanto</td>
+                <td>123456789</td>
+                <td>Teknik Informatika</td>
+                <td>ahmad@email.com</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Budi Hartono</td>
+                <td>987654321</td>
+                <td>Sistem Informasi</td>
+                <td>budi@email.com</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Citra Lestari</td>
+                <td>112233445</td>
+                <td>Manajemen Bisnis</td>
+                <td>citra@email.com</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td>Dewi Sartika</td>
+                <td>556677889</td>
+                <td>Teknik Informatika</td>
+                <td>dewi@email.com</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+  </body>
+</html>

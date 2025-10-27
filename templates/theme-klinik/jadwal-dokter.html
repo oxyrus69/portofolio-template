@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jadwal Dokter - Klinik Sehat</title>
+
+    <link rel="stylesheet" href="app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-brand">
+          <button class="mobile-menu-toggle" id="app-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="brand-text">Rekam Medis</span>
+        </div>
+        <div class="header-user">
+          <span>Halo, Dr. Budi</span>
+          <img
+            src="httpsa://via.placeholder.com/40"
+            alt="Foto Profil"
+            style="width: 40px; height: 40px; border-radius: 50%"
+          />
+        </div>
+      </header>
+
+      <aside class="app-sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+              <a href="dashboard.html">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pasien-data.html">
+                <i class="fas fa-users"></i>
+                <span>Data Pasien</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="jadwal-dokter.html">
+                <i class="fas fa-user-md"></i>
+                <span>Jadwal Dokter</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="rekam-medis.html">
+                <i class="fas fa-file-medical"></i>
+                <span>Rekam Medis</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pengaturan.html">
+                <i class="fas fa-cog"></i>
+                <span>Pengaturan</span>
+              </a>
+            </li>
+            <li class="nav-item logout">
+              <a href="login.html">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="app-content">
+        <div class="content-header">
+          <h1>Jadwal Dokter Jaga</h1>
+          <div class="header-actions">
+            <input
+              type="text"
+              placeholder="Cari dokter..."
+              class="search-bar"
+            />
+            <a href="#" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Tambah Jadwal
+            </a>
+          </div>
+        </div>
+
+        <div class="schedule-grid">
+          <div class="doctor-card">
+            <img
+              src="httpsa://via.placeholder.com/80"
+              alt="Foto Dokter"
+              class="doctor-photo"
+            />
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dr. Budi Hartono</h3>
+              <p class="doctor-specialty">Dokter Umum</p>
+            </div>
+            <div class="doctor-schedule">
+              <span class="schedule-day">Senin - Jumat</span>
+              <span class="schedule-time">08:00 - 15:00</span>
+            </div>
+            <div class="doctor-status available">
+              <i class="fas fa-check-circle"></i> Sedang Praktik
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <img
+              src="httpsa://via.placeholder.com/80"
+              alt="Foto Dokter"
+              class="doctor-photo"
+            />
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dr. Citra Lestari</h3>
+              <p class="doctor-specialty">Dokter Gigi</p>
+            </div>
+            <div class="doctor-schedule">
+              <span class="schedule-day">Selasa & Kamis</span>
+              <span class="schedule-time">10:00 - 17:00</span>
+            </div>
+            <div class="doctor-status unavailable">
+              <i class="fas fa-times-circle"></i> Selesai Praktik
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <img
+              src="httpsa://via.placeholder.com/80"
+              alt="Foto Dokter"
+              class="doctor-photo"
+            />
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dr. Ahmad Susanto</h3>
+              <p class="doctor-specialty">Dokter Anak</p>
+            </div>
+            <div class="doctor-schedule">
+              <span class="schedule-day">Senin, Rabu, Jumat</span>
+              <span class="schedule-time">09:00 - 14:00</span>
+            </div>
+            <div class="doctor-status available">
+              <i class="fas fa-check-circle"></i> Sedang Praktik
+            </div>
+          </div>
+
+          <div class="doctor-card">
+            <img
+              src="httpsa://via.placeholder.com/80"
+              alt="Foto Dokter"
+              class="doctor-photo"
+            />
+            <div class="doctor-info">
+              <h3 class="doctor-name">Dr. Dewi Sartika</h3>
+              <p class="doctor-specialty">Dokter THT</p>
+            </div>
+            <div class="doctor-schedule">
+              <span class="schedule-day">Hanya Sabtu</span>
+              <span class="schedule-time">13:00 - 18:00</span>
+            </div>
+            <div class="doctor-status unavailable">
+              <i class="fas fa-times-circle"></i> Belum Mulai
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,378 @@
+/* 1. Pengaturan Dasar */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/* ======================================= */
+/* 2. LAYOUT UTAMA DENGAN CSS GRID         */
+/* ======================================= */
+.dashboard-container {
+  display: grid;
+
+  /* Definisi Kolom: 
+       Kolom pertama (sidebar) lebarnya 240px.
+       Kolom kedua (konten) mengambil sisa ruang (1fr).
+    */
+  grid-template-columns: 240px 1fr;
+
+  /* Definisi Baris:
+       Baris pertama (header) tingginya 60px.
+       Baris kedua (konten) mengambil sisa ruang (1fr).
+    */
+  grid-template-rows: 60px 1fr;
+
+  /* Definisi Area:
+       Kita membuat "peta" layout.
+       "header header"  -> Header membentang di kedua kolom
+       "sidebar content" -> Baris kedua dibagi jadi sidebar dan konten
+    */
+  grid-template-areas:
+    "header header"
+    "sidebar content";
+
+  /* Seluruh layout setidaknya setinggi layar */
+  min-height: 100vh;
+}
+
+/* Menempatkan setiap bagian ke areanya */
+.header {
+  grid-area: header;
+  background-color: #ffffff;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #2c3e50; /* Warna biru gelap */
+  color: #ecf0f1;
+  padding-top: 20px;
+  /* Membuat sidebar tetap di tempat saat di-scroll */
+  position: sticky;
+  top: 60px; /* Sejajar di bawah header */
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+.content {
+  grid-area: content;
+  padding: 30px;
+  overflow-y: auto; /* Konten bisa di-scroll jika panjang */
+}
+
+/* ======================================= */
+/* 3. STYLING KOMPONEN HEADER            */
+/* ======================================= */
+.header-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-menu-toggle {
+  display: none; /* Sembunyikan di desktop */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.header-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ======================================= */
+/* 4. STYLING SIDEBAR / NAVIGASI         */
+/* ======================================= */
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav .nav-item {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-item a {
+  display: flex;
+  align-items: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: 500;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Ikon sidebar */
+.sidebar-nav .nav-item a i {
+  width: 20px;
+  margin-right: 15px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Efek hover di sidebar */
+.sidebar-nav .nav-item a:hover {
+  background-color: #34495e;
+  padding-left: 35px; /* Efek sedikit bergeser */
+}
+
+/* Link yang sedang 'active' */
+.sidebar-nav .nav-item.active a {
+  background-color: #3498db; /* Warna primer */
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Link logout di paling bawah */
+.sidebar-nav .logout {
+  margin-top: 30px;
+  border-top: 1px solid #34495e;
+}
+.sidebar-nav .logout a:hover {
+  background-color: #c0392b; /* Warna merah saat hover */
+}
+
+/* ======================================= */
+/* 5. STYLING AREA KONTEN                */
+/* ======================================= */
+.content h1 {
+  margin-top: 0;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.content-box {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+/* ======================================= */
+/* 6. STYLING KONTEN PROFESIONAL (TABEL) */
+/* ======================================= */
+
+/* Header di dalam area konten */
+.content-header {
+  display: flex;
+  justify-content: space-between; /* Mendorong judul dan tombol berpisah */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.content-header h1 {
+  margin: 0; /* Hapus margin default h1 */
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px; /* Jarak antara search bar dan tombol */
+}
+
+.search-bar {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Base style untuk tombol (kita buat lebih umum) */
+.btn {
+  display: inline-flex; /* Agar ikon dan teks sejajar */
+  align-items: center;
+  gap: 8px; /* Jarak antara ikon dan teks */
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+/* Tombol Aksi Primer (Tambah Data) */
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+/* Styling Tabel Data */
+.data-table {
+  width: 100%;
+  border-collapse: collapse; /* Menghilangkan spasi antar border */
+  font-size: 0.95rem;
+}
+
+.data-table thead tr {
+  background-color: #ecf0f1; /* Latar header tabel abu-abu muda */
+  color: #34495e; /* Teks header tabel biru gelap */
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 14px 18px; /* Padding sel */
+  border-bottom: 1px solid #e0e0e0; /* Garis pemisah horizontal */
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Efek zebra strip */
+}
+
+.data-table tbody tr:hover {
+  background-color: #f1f1f1; /* Efek hover */
+}
+
+/* Tombol Aksi di dalam tabel */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Tombol kecil di tabel */
+.btn-edit,
+.btn-delete {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  border-radius: 5px;
+}
+
+.btn-edit {
+  background-color: #f1c40f; /* Kuning */
+  color: #333;
+}
+.btn-edit:hover {
+  background-color: #e6b800;
+}
+
+.btn-delete {
+  background-color: #e74c3c; /* Merah */
+  color: white;
+}
+.btn-delete:hover {
+  background-color: #c0392b;
+}
+
+/* ======================================= */
+/* 7. ATURAN RESPONSIVE (MOBILE)         */
+/* ======================================= */
+
+/* 'Breakpoint' ini akan aktif di layar < 768px */
+@media (max-width: 768px) {
+  /* 1. Ubah layout grid utama */
+  .dashboard-container {
+    /* Ubah kolom jadi 1, sidebar hilang dari alur */
+    grid-template-columns: 1fr;
+    /* Definisikan area baru: hanya header dan content */
+    grid-template-areas:
+      "header"
+      "content";
+  }
+
+  /* 2. Tampilkan tombol hamburger */
+  .mobile-menu-toggle {
+    display: block; /* Tampilkan tombolnya */
+  }
+
+  /* 3. Atur ulang posisi Sidebar */
+  .sidebar {
+    /* Posisikan di atas segalanya */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; /* Setinggi layar */
+    z-index: 1000; /* Di lapisan paling atas */
+
+    /* Sembunyikan ke kiri layar */
+    transform: translateX(-100%);
+
+    /* Efek transisi halus */
+    transition: transform 0.3s ease-in-out;
+
+    /* Pastikan sidebar tetap di atas header saat mobile */
+    top: 0;
+    padding-top: 60px; /* Beri jarak untuk header */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 4. Buat status "TERBUKA" */
+  /* Saat .dashboard-container punya kelas .sidebar-open... */
+  .dashboard-container.sidebar-open .sidebar {
+    /* Tampilkan sidebar (geser kembali ke 0) */
+    transform: translateX(0);
+  }
+
+  /* 5. Atur ulang Header */
+  .header-title {
+    display: none; /* Sembunyikan judul di header mobile */
+  }
+
+  /* 6. Atur ulang Konten */
+  .content {
+    /* Sidebar sudah 'fixed', jadi konten tidak perlu
+         'sticky' top lagi */
+    position: relative;
+  }
+
+  .content-header {
+    flex-direction: column; /* Tumpuk judul dan aksi */
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-direction: column; /* Tumpuk search dan tombol */
+    gap: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+    box-sizing: border-box; /* Pastikan padding tidak merusak */
+  }
+
+  .btn-primary {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center; /* Tombol jadi full-width */
+  }
+
+  /* 7. Membuat tabel bisa di-scroll horizontal */
+  .content-box {
+    overflow-x: auto; /* Penting untuk tabel! */
+  }
+
+  .data-table {
+    min-width: 600px; /* Paksa tabel agar minimal 600px */
+  }
+}

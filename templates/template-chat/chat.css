@@ -1,0 +1,173 @@
+/* 1. Import Font & Variabel */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-primary: #007bff; /* Biru */
+  --color-bg-app: #f4f7f6;
+  --color-bg-light: #ffffff;
+  --color-border: #dee2e6;
+  --color-text: #333;
+  --color-text-light: #6c757d;
+  --bubble-sent-bg: var(--color-primary);
+  --bubble-sent-text: #ffffff;
+  --bubble-received-bg: #e9ecef;
+  --bubble-received-text: #333;
+}
+
+/* 2. Pengaturan Dasar */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: var(--color-bg-app);
+  color: var(--color-text);
+  /* Mencegah app-nya ke-scroll */
+  overflow: hidden;
+}
+
+/* 3. Layout Utama Aplikasi */
+.chat-container {
+  display: flex;
+  /* Set tinggi agar pas di layar */
+  height: 100vh;
+  width: 100vw;
+}
+
+/* 4. Kolom Kiri: Daftar Kontak */
+.contact-list {
+  flex: 0 0 300px; /* Lebar tetap 300px */
+  background-color: var(--color-bg-light);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-list-header {
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-border);
+}
+.contact-list-header input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+.contacts {
+  flex-grow: 1; /* Mengisi sisa ruang */
+  overflow-y: auto; /* Bisa di-scroll */
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.2s;
+}
+.contact-item:hover {
+  background-color: #f8f9fa;
+}
+.contact-item.active {
+  background-color: var(--color-primary);
+  color: white;
+}
+.contact-item.active .contact-preview {
+  color: #e0e0e0;
+}
+.contact-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.contact-info .contact-name {
+  font-weight: 600;
+}
+.contact-info .contact-preview {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* 5. Kolom Kanan: Jendela Obrolan */
+.chat-window {
+  flex-grow: 1; /* Mengisi sisa layar */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-header {
+  padding: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-color: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* 6. Area Pesan (Gelembung) */
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto; /* Pesan bisa di-scroll */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bubble {
+  padding: 12px 18px;
+  border-radius: 20px;
+  max-width: 60%;
+  line-height: 1.5;
+}
+/* Gelembung Terkirim (Rata Kanan) */
+.bubble.sent {
+  align-self: flex-end; /* INI KUNCINYA */
+  background-color: var(--bubble-sent-bg);
+  color: var(--bubble-sent-text);
+  border-bottom-right-radius: 5px; /* Tampilan khas chat */
+}
+/* Gelembung Diterima (Rata Kiri) */
+.bubble.received {
+  align-self: flex-start; /* INI KUNCINYA */
+  background-color: var(--bubble-received-bg);
+  color: var(--bubble-received-text);
+  border-bottom-left-radius: 5px; /* Tampilan khas chat */
+}
+
+/* 7. Input Pesan */
+.chat-input {
+  display: flex;
+  padding: 20px;
+  background-color: var(--color-bg-light);
+  border-top: 1px solid var(--color-border);
+  gap: 10px;
+}
+.chat-input input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  font-family: "Poppins";
+  font-size: 1rem;
+}
+.chat-input button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 8. Responsif (Sederhana) */
+@media (max-width: 768px) {
+  .contact-list {
+    /* Sembunyikan daftar kontak di mobile */
+    display: none;
+  }
+}

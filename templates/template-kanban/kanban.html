@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Papan Kanban Interaktif</title>
+    <link rel="stylesheet" href="kanban.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="kanban-header">
+      <i class="fas fa-tasks"></i> Papan Proyek
+    </header>
+
+    <main class="kanban-board">
+      <div class="kanban-column">
+        <h2><i class="fas fa-list-ul"></i> Rencana (To Do)</h2>
+        <div class="tasks-container" data-column-id="todo">
+          <div class="task-card" draggable="true" id="task-1">
+            Rancang Halaman Login
+          </div>
+          <div class="task-card" draggable="true" id="task-2">
+            Buat Desain Database
+          </div>
+          <div class="task-card" draggable="true" id="task-3">
+            Siapkan Lingkungan Project
+          </div>
+        </div>
+      </div>
+
+      <div class="kanban-column">
+        <h2><i class="fas fa-spinner"></i> Dikerjakan (In Progress)</h2>
+        <div class="tasks-container" data-column-id="inprogress">
+          <div class="task-card" draggable="true" id="task-4">
+            Kembangkan API Autentikasi
+          </div>
+        </div>
+      </div>
+
+      <div class="kanban-column">
+        <h2><i class="fas fa-check-double"></i> Selesai (Done)</h2>
+        <div class="tasks-container" data-column-id="done">
+          <div class="task-card" draggable="true" id="task-5">
+            Buat Wireframe Awal
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="kanban.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulir Multi-Langkah</title>
+    <link rel="stylesheet" href="wizard.css" />
+  </head>
+  <body>
+    <div class="wizard-container">
+      <h1>Formulir Pendaftaran</h1>
+
+      <div class="progress-bar">
+        <div class="progress-line" id="progress-line"></div>
+        <div class="progress-step active" data-step="1">1</div>
+        <div class="progress-step" data-step="2">2</div>
+        <div class="progress-step" data-step="3">3</div>
+      </div>
+
+      <form id="multi-step-form">
+        <div class="form-step active" data-step="1">
+          <h2>Langkah 1: Info Pribadi</h2>
+          <div class="form-group">
+            <label for="nama">Nama Lengkap</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              placeholder="Masukkan nama Anda"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="nama@email.com"
+            />
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <h2>Langkah 2: Alamat</h2>
+          <div class="form-group">
+            <label for="alamat">Alamat Jalan</label>
+            <input
+              type="text"
+              id="alamat"
+              name="alamat"
+              placeholder="Jl. Merdeka No. 10"
+            />
+          </div>
+          <div class="form-group">
+            <label for="kota">Kota</label>
+            <input type="text" id="kota" name="kota" placeholder="Jakarta" />
+          </div>
+        </div>
+
+        <div class="form-step" data-step="3">
+          <h2>Langkah 3: Konfirmasi</h2>
+          <div class="form-group">
+            <p>Silakan periksa kembali data Anda sebelum mengirim.</p>
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            id="prev-btn"
+            style="display: none"
+          >
+            Sebelumnya
+          </button>
+          <button type="button" class="btn btn-primary" id="next-btn">
+            Selanjutnya
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            id="submit-btn"
+            style="display: none"
+          >
+            Kirim
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="wizard.js"></script>
+  </body>
+</html>

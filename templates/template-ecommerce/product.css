@@ -1,0 +1,212 @@
+/* 1. Import Font & Variabel */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-primary: #28a745; /* Hijau E-commerce */
+  --color-primary-dark: #218838;
+  --color-bg-page: #f8f9fa;
+  --color-bg-card: #ffffff;
+  --color-text: #212529;
+  --color-text-light: #6c757d;
+  --color-border: #dee2e6;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. Pengaturan Dasar */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: var(--color-bg-page);
+  color: var(--color-text);
+}
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--color-bg-card);
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* 3. Layout Utama (CSS Grid) */
+.product-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 kolom sama besar */
+  gap: 40px;
+}
+
+/* 4. Kolom Kiri: Galeri Gambar */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.main-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1; /* Selalu kotak */
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+}
+.thumbnail-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  cursor: pointer;
+  transition: border-color 0.2s;
+  opacity: 0.7;
+}
+.thumbnail:hover,
+.thumbnail.active {
+  opacity: 1;
+  border-color: var(--color-primary);
+}
+
+/* 5. Kolom Kanan: Info Produk */
+.product-info h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+.product-price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 20px;
+}
+.product-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  margin-bottom: 30px;
+}
+
+/* 6. Kontrol Kuantitas & Tombol */
+.product-controls {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+.quantity-btn {
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-light);
+}
+.quantity-input {
+  width: 50px;
+  height: 40px;
+  border: none;
+  border-left: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+/* Sembunyikan panah di input number */
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.add-to-cart-btn {
+  flex-grow: 1;
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.add-to-cart-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* 7. Konten Tab */
+.tab-navigation {
+  display: flex;
+  border-bottom: 2px solid var(--color-border);
+  margin-bottom: 20px;
+}
+.tab-btn {
+  padding: 12px 25px;
+  border: none;
+  background: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-text-light);
+  position: relative;
+  top: 2px; /* Agar border bawahnya pas */
+  border-bottom: 2px solid transparent;
+}
+.tab-btn.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.tab-content {
+  display: none; /* Sembunyi semua */
+  animation: fadeIn 0.5s;
+}
+.tab-content.active {
+  display: block; /* Tampilkan yang aktif */
+}
+.tab-content p,
+.tab-content ul {
+  line-height: 1.7;
+  color: var(--color-text-light);
+}
+.tab-content li {
+  margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 8. Responsif */
+@media (max-width: 768px) {
+  .product-layout {
+    grid-template-columns: 1fr; /* Tumpuk 2 kolom */
+    gap: 20px;
+  }
+  .product-info h1 {
+    font-size: 2rem;
+  }
+  .product-price {
+    font-size: 1.8rem;
+  }
+  .product-controls {
+    flex-direction: column; /* Tumpuk kuantitas & tombol */
+    align-items: stretch;
+  }
+}

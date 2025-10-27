@@ -1,0 +1,177 @@
+/* 1. Import Font & Variabel */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-primary: #007bff; /* Biru */
+  --color-primary-light: #cce5ff;
+  --color-bg-page: #f4f7f6;
+  --color-bg-form: #ffffff;
+  --color-text: #333;
+  --color-border: #dee2e6;
+  --color-text-light: #6c757d;
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* 2. Pengaturan Dasar */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: var(--color-bg-page);
+  color: var(--color-text);
+  /* Menengahkan form */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 3. Wrapper Formulir Utama */
+.wizard-container {
+  background-color: var(--color-bg-form);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-soft);
+  width: 100%;
+  max-width: 600px;
+  /* Mencegah konten meluap saat transisi */
+  overflow: hidden;
+}
+
+.wizard-container h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+}
+
+/* 4. Progress Bar (DIPERBAIKI) */
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Garis abu-abu di belakang (sekarang di luar) */
+.progress-bar:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 100%;
+  background-color: var(--color-border);
+  z-index: 1;
+}
+
+/* Garis biru progres (sekarang di luar) */
+.progress-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%; /* Diatur oleh JS */
+  background-color: var(--color-primary);
+  z-index: 2;
+  transition: width 0.4s ease;
+}
+
+.progress-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-bg-form);
+  border: 3px solid var(--color-border);
+  color: var(--color-text-light);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3; /* Di atas garis */
+  transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+.progress-step.active {
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* 5. Langkah Formulir */
+.form-step {
+  display: none; /* Sembunyi semua secara default */
+  animation: fadeIn 0.5s ease;
+}
+.form-step.active {
+  display: block; /* Tampilkan yang aktif */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form-step h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 20px 0;
+  color: var(--color-primary);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* 6. Tombol Navigasi */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.btn-secondary {
+  background-color: var(--color-bg-column);
+  color: var(--color-text);
+}
+.btn-secondary:hover {
+  background-color: #d6dbe0;
+}

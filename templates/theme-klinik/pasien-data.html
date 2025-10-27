@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Pasien - Klinik Sehat</title>
+
+    <link rel="stylesheet" href="app.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <div class="header-brand">
+          <button class="mobile-menu-toggle" id="app-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="brand-text">Rekam Medis</span>
+        </div>
+        <div class="header-user">
+          <span>Halo, Dr. Budi</span>
+          <img
+            src="httpsa://via.placeholder.com/40"
+            alt="Foto Profil"
+            style="width: 40px; height: 40px; border-radius: 50%"
+          />
+        </div>
+      </header>
+
+      <aside class="app-sidebar">
+        <nav class="sidebar-nav">
+          <ul>
+            <li class="nav-item">
+              <a href="dashboard.html">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a href="pasien-data.html">
+                <i class="fas fa-users"></i>
+                <span>Data Pasien</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="jadwal-dokter.html">
+                <i class="fas fa-user-md"></i>
+                <span>Jadwal Dokter</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="rekam-medis.html">
+                <i class="fas fa-file-medical"></i>
+                <span>Rekam Medis</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pengaturan.html">
+                <i class="fas fa-cog"></i>
+                <span>Pengaturan</span>
+              </a>
+            </li>
+            <li class="nav-item logout">
+              <a href="login.html">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="app-content">
+        <div class="content-header">
+          <h1>Manajemen Data Pasien</h1>
+          <div class="header-actions">
+            <input
+              type="text"
+              placeholder="Cari pasien..."
+              class="search-bar"
+            />
+            <a href="#" class="btn btn-primary">
+              <i class="fas fa-plus"></i> Tambah Pasien
+            </a>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>No. Rekam Medis</th>
+                <th>Nama Lengkap</th>
+                <th>No. KTP</th>
+                <th>Alamat</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>RM-001</td>
+                <td>Ahmad Susanto</td>
+                <td>320501...</td>
+                <td>Jl. Merdeka No. 10, Jakarta</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>RM-002</td>
+                <td>Budi Hartono</td>
+                <td>320502...</td>
+                <td>Jl. Kemerdekaan No. 22, Bandung</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>RM-003</td>
+                <td>Citra Lestari</td>
+                <td>320503...</td>
+                <td>Jl. Pahlawan No. 5, Surabaya</td>
+                <td class="action-buttons">
+                  <a href="#" class="btn btn-edit"
+                    ><i class="fas fa-pencil-alt"></i> Edit</a
+                  >
+                  <a href="#" class="btn btn-delete"
+                    ><i class="fas fa-trash-alt"></i> Hapus</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

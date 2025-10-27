@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halaman Produk E-commerce</title>
+    <link rel="stylesheet" href="product.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="product-layout">
+        <div class="product-gallery">
+          <img
+            src="httpsa://via.placeholder.com/600x600/28a745/ffffff?text=Produk+1"
+            alt="Gambar Produk Utama"
+            class="main-image"
+            id="main-product-image"
+          />
+          <div class="thumbnail-row">
+            <img
+              src="httpsa://via.placeholder.com/100x100/28a745/ffffff?text=Produk+1"
+              alt="Thumbnail 1"
+              class="thumbnail active"
+              data-src="httpsa://via.placeholder.com/600x600/28a745/ffffff?text=Produk+1"
+            />
+            <img
+              src="httpsa://via.placeholder.com/100x100/ffc107/333333?text=Produk+2"
+              alt="Thumbnail 2"
+              class="thumbnail"
+              data-src="httpsa://via.placeholder.com/600x600/ffc107/333333?text=Produk+2"
+            />
+            <img
+              src="httpsa://via.placeholder.com/100x100/007bff/ffffff?text=Produk+3"
+              alt="Thumbnail 3"
+              class="thumbnail"
+              data-src="httpsa://via.placeholder.com/600x600/007bff/ffffff?text=Produk+3"
+            />
+          </div>
+        </div>
+
+        <div class="product-info">
+          <h1>Nama Produk Keren</h1>
+          <span class="product-price">Rp 499.000</span>
+          <p class="product-description">
+            Ini adalah deskripsi singkat produk yang menjelaskan fitur-fitur
+            utamanya. Dibuat dari bahan berkualitas tinggi dan dirancang untuk
+            tahan lama.
+          </p>
+
+          <div class="product-controls">
+            <div class="quantity-selector">
+              <button class="quantity-btn" id="qty-minus">-</button>
+              <input
+                type="number"
+                class="quantity-input"
+                id="qty-input"
+                value="1"
+                min="1"
+              />
+              <button class="quantity-btn" id="qty-plus">+</button>
+            </div>
+            <button class="add-to-cart-btn">
+              <i class="fas fa-shopping-cart"></i> Tambah ke Keranjang
+            </button>
+          </div>
+
+          <div class="product-tabs">
+            <nav class="tab-navigation">
+              <button class="tab-btn active" data-tab="deskripsi">
+                Deskripsi
+              </button>
+              <button class="tab-btn" data-tab="ulasan">Ulasan</button>
+            </nav>
+
+            <div class="tab-content active" id="deskripsi">
+              <p>
+                Ini adalah deskripsi lengkap produk. Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.
+              </p>
+              <ul>
+                <li>Fitur A: Sangat canggih</li>
+                <li>Fitur B: Mudah digunakan</li>
+                <li>Fitur C: Garansi 5 tahun</li>
+              </ul>
+            </div>
+
+            <div class="tab-content" id="ulasan">
+              <p>Belum ada ulasan untuk produk ini.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="product.js"></script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+/* 1. Pengaturan Dasar dan Latar Belakang */
+body {
+  /* Menggunakan font Poppins, atau font sans-serif jika tidak ada */
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  background-color: #f0f4f8; /* Warna latar abu-abu muda */
+  margin: 0;
+
+  /* TRIK UTAMA: Membuat form di tengah layar
+       Kita gunakan Flexbox untuk menengahkan .login-wrapper 
+    */
+  display: flex;
+  justify-content: center; /* Tengah secara horizontal */
+  align-items: center; /* Tengah secara vertikal */
+  min-height: 100vh; /* Setidaknya setinggi layar penuh */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 2. Pembungkus Kotak Login (untuk responsif) */
+.login-wrapper {
+  width: 100%;
+  max-width: 420px; /* Lebar maksimal kotak login */
+}
+
+/* 3. Kotak Login Utama */
+.login-box {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.login-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+/* 4. Grup Input (Label + Input) */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* Penting agar padding tidak merusak lebar */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Efek 'focus' saat diklik */
+.input-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* 5. Tombol Login */
+.login-button {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #3498db; /* Warna biru primer */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #2980b9; /* Warna biru lebih gelap saat hover */
+}
+
+/* 6. Link di Bawah (Footer) */
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: #3498db;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}

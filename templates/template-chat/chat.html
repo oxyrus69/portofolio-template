@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Antarmuka Obrolan</title>
+    <link rel="stylesheet" href="chat.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="chat-container">
+      <aside class="contact-list">
+        <div class="contact-list-header">
+          <h3>Pesan</h3>
+          <input type="text" placeholder="Cari kontak..." />
+        </div>
+
+        <div class="contacts">
+          <div class="contact-item active">
+            <img
+              src="httpsa://via.placeholder.com/50/007bff/ffffff?text=B"
+              alt="Budi"
+            />
+            <div class="contact-info">
+              <span class="contact-name">Dr. Budi</span>
+              <span class="contact-preview"
+                >Oke, saya tunggu di ruangan...</span
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <img
+              src="httpsa://via.placeholder.com/50/28a745/ffffff?text=C"
+              alt="Citra"
+            />
+            <div class="contact-info">
+              <span class="contact-name">Citra (Resepsionis)</span>
+              <span class="contact-preview"
+                >Pasien selanjutnya sudah siap.</span
+              >
+            </div>
+          </div>
+          <div class="contact-item">
+            <img
+              src="httpsa://via.placeholder.com/50/ffc107/333333?text=A"
+              alt="Apotek"
+            />
+            <div class="contact-info">
+              <span class="contact-name">Apotek Internal</span>
+              <span class="contact-preview">Stok Paracetamol menipis.</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="chat-window">
+        <header class="chat-header">Dr. Budi</header>
+
+        <div class="chat-messages" id="chat-messages">
+          <div class="bubble received">
+            Halo, Dr. Budi. Pasien atas nama Ahmad sudah selesai.
+          </div>
+          <div class="bubble sent">Oke, saya tunggu di ruangan saya ya.</div>
+          <div class="bubble received">Baik, Dok.</div>
+        </div>
+
+        <form class="chat-input" id="chat-form">
+          <input type="text" id="message-input" placeholder="Ketik pesan..." />
+          <button type="submit"><i class="fas fa-paper-plane"></i></button>
+        </form>
+      </main>
+    </div>
+
+    <script src="chat.js"></script>
+  </body>
+</html>
